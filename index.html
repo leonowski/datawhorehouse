@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>datawhorehouse</title>
-    <meta name="description" content="Coming soon" />
+    <title>DataWhoreHouse</title>
+    <meta name="description" content="Where data comes to party!" />
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📦</text></svg>">
     <style>
@@ -13,7 +13,7 @@
             color-scheme: light dark;
             --bg: #0d1117;
             --fg: #e6edf3;
-            --accent: #00b4d8;
+            --accent: #ff6b6b;
             --placeholder-bg: #1f2630;
             --placeholder-border: #303a46;
             --font-stack: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
@@ -44,6 +44,7 @@
             font-size: clamp(2rem, 6vw, 3.2rem);
             margin: 0 0 1.25rem;
             letter-spacing: .02em;
+            color: var(--accent);
         }
 
         p {
@@ -146,12 +147,25 @@
         function App() {
             return (
                 e(React.Fragment, null,
-                    e('h1', null, 'datawhorehouse'),
-                    e('p', null, 'Image below.'),
+                    e('h1', null, 'DataWhoreHouse'),
+                    e('p', null, 'Where data comes to party! 🎉💃'),
                     e('div', { className: 'image-shell', tabIndex: 0 },
                         e('img', { src: 'image.png', alt: 'Primary site image' })
                     ),
-                    e('footer', null, '© ' + new Date().getFullYear() + ' datawhorehouse')
+                    e('footer', null,
+                        e('p', null, '© ' + new Date().getFullYear() + ' DataWhoreHouse'),
+                        e('nav', null,
+                            e('ul', null,
+                                e('li', null, e('a', { href: '#' }, 'About Us')),
+                                e('li', null, e('a', { href: '#' }, 'Data Services')),
+                                e('li', null, e('a', { href: '#' }, 'Lambo Tracker')),
+                                e('li', null, e('a', { href: '#' }, 'Contact Us'))
+                            )
+                        ),
+                        e('p', null,
+                            'Disclaimer: No actual data is harmed in the making of this website. Lambos are for display purposes only.'
+                        )
+                    )
                 )
             );
         }
