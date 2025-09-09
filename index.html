@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>datawhorehouse</title>
+    <meta name="description" content="Coming soon" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📦</text></svg>">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #0d1117;
+            --fg: #e6edf3;
+            --accent: #00b4d8;
+            --placeholder-bg: #1f2630;
+            --placeholder-border: #303a46;
+            --font-stack: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-stack);
+            background: linear-gradient(145deg, #0d1117, #132033 55%, #0d1117);
+            min-height: 100dvh;
+            display: grid;
+            place-items: center;
+            color: var(--fg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            width: min(900px, 90vw);
+            text-align: center;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            margin: 0 0 1.25rem;
+            letter-spacing: .02em;
+        }
+
+        p {
+            max-width: 55ch;
+            margin: 0 auto 2rem;
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+
+        .image-shell {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: min(600px, 85vw);
+            aspect-ratio: 16 / 9;
+            margin: 0 auto;
+            border: 2px dashed var(--placeholder-border);
+            border-radius: 18px;
+            background: repeating-linear-gradient(45deg, var(--placeholder-bg) 0 12px, #222c37 12px 24px);
+            overflow: hidden;
+            box-shadow: 0 8px 30px -10px rgba(0, 0, 0, .6), 0 2px 6px -2px rgba(0, 0, 0, .4);
+            transition: border-color .3s, transform .4s cubic-bezier(.4, .8, .2, 1);
+        }
+
+        .image-shell:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .image-shell:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        .image-shell span {
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            font-weight: 500;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            opacity: .85;
+            display: inline-flex;
+            align-items: center;
+            gap: .65em;
+        }
+
+        /* When real image is present */
+        .image-shell img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* change to 'cover' if you want full bleed */
+            display: block;
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            font-size: .8rem;
+            opacity: .6;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f5f7fb;
+                --fg: #101828;
+                --placeholder-bg: #f0f3f7;
+                --placeholder-border: #d0d7e2;
+            }
+
+            body {
+                background: radial-gradient(circle at 30% 20%, #ffffff, #e2eaf3 70%);
+            }
+
+            .image-shell {
+                box-shadow: 0 6px 22px -8px rgba(0, 0, 0, .18), 0 2px 5px -2px rgba(0, 0, 0, .08);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main id="root" aria-label="Main content">
+        <!-- React will hydrate this -->
+    </main>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script>
+        const e = React.createElement;
+
+        function App() {
+            return (
+                e(React.Fragment, null,
+                    e('h1', null, 'datawhorehouse'),
+                    e('p', null, 'Image below.'),
+                    e('div', { className: 'image-shell', tabIndex: 0 },
+                        e('img', { src: 'image.png', alt: 'Primary site image' })
+                    ),
+                    e('footer', null, '© ' + new Date().getFullYear() + ' datawhorehouse')
+                )
+            );
+        }
+
+        const rootNode = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootNode);
+        root.render(e(App));
+    </script>
+</body>
+
+</html>
